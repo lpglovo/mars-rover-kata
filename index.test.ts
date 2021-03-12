@@ -17,13 +17,13 @@ class Rover {
   }
 
   move(commands: string[]) {
-    return {x: 0, y: 1};
+    return {x: 0, y: this.position.y + 1};
   }
 }
 
 describe("mars rover", () => {
   it("should move forward by one tile", () => {
-    const initialPosition: Point = {x: 1, y: 1};
+    const initialPosition: Point = {x: 0, y: 0};
     const direction = "N";
 
     var newPosition = new Rover(initialPosition, direction).move(['F']);
@@ -32,7 +32,7 @@ describe("mars rover", () => {
     expect(newPosition.y).toBe(1);
   });
 
-  xit("should move forward by one when position is 0,1", () => {
+  it("should move forward by one when position is 0,1", () => {
     const initialPosition: Point = {x: 0, y: 1};
     const direction = "N";
 
