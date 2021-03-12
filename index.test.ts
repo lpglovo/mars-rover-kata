@@ -24,18 +24,21 @@ class Rover {
           x: 0,
           y: this.position.y + 1,
           orientation: this.position.orientation,
+          point: { x: 0, y: this.position.y + 1}
         };
       case "b":
         return {
           x: 0,
           y: this.position.y - 1,
           orientation: this.position.orientation,
+          point: { x: 0, y: this.position.y - 1}
         };
       case "r":
         return {
           x: 0,
           y: this.position.y,
           orientation: this.position.orientation,
+          point: { x: 0, y: this.position.y}
         };
       default:
         throw new Error("undefined command");
@@ -53,6 +56,7 @@ describe("mars rover", () => {
       x: 0,
       y: 1,
       orientation: "N",
+      point: { x: 0, y: 1 }
     });
   });
 
@@ -63,6 +67,7 @@ describe("mars rover", () => {
 
     expect(newPosition.x).toBe(0);
     expect(newPosition.y).toBe(2);
+    expect(newPosition.point).toEqual({ x: 0, y: 2 })
   });
 
   it("should move forward by one when position is 0,1", () => {
@@ -72,6 +77,7 @@ describe("mars rover", () => {
 
     expect(newPosition.x).toBe(0);
     expect(newPosition.y).toBe(0);
+    expect(newPosition.point).toEqual({ x: 0, y: 0 })
   });
 
   it("should move turn right", () => {
@@ -79,6 +85,6 @@ describe("mars rover", () => {
 
     var newPosition = new Rover(initialPosition, "N").move(["r"]);
 
-    expect(newPosition).toEqual({ x: 0, y: 1, orientation: "N" });
+    expect(newPosition).toEqual({ x: 0, y: 1, orientation: "N", point: { x: 0, y: 1} });
   });
 });
