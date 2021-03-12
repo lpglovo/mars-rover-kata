@@ -1,6 +1,4 @@
 type Point = {
-  x: number;
-  y: number;
   orientation: string;
   point?: Point2
 };

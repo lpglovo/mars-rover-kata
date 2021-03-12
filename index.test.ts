@@ -9,29 +9,29 @@ l, r - left, right
 */
 
 class Rover {
-  private position: Point;
+  private position: Point2;
   private direction: string;
-  constructor(position: Point, direction: string) {
+  constructor(position: Point2, direction: string) {
     this.position = position;
     this.direction = direction;
   }
 
-  move(commands: string[]) {
+  move(commands: string[]): Point {
     const command = commands[0];
     switch (command) {
       case "f":
         return {
-          orientation: this.position.orientation,
+          orientation: this.direction,
           point: { x: 0, y: this.position.y + 1}
         };
       case "b":
         return {
-          orientation: this.position.orientation,
+          orientation: this.direction,
           point: { x: 0, y: this.position.y - 1}
         };
       case "r":
         return {
-          orientation: this.position.orientation,
+          orientation: this.direction,
           point: { x: 0, y: this.position.y}
         };
       default:
@@ -42,7 +42,7 @@ class Rover {
 
 describe("mars rover", () => {
   it("should move forward by one tile", () => {
-    const initialPosition: Point = { x: 0, y: 0, orientation: "N" };
+    const initialPosition: Point2 = { x: 0, y: 0};
 
     var newPosition = new Rover(initialPosition, "N").move(["f"]);
 
@@ -53,7 +53,7 @@ describe("mars rover", () => {
   });
 
   it("should move forward by one when position is 0,1", () => {
-    const initialPosition: Point = { x: 0, y: 1, orientation: "N" };
+    const initialPosition: Point2 = { x: 0, y: 1 };
 
     var newPosition = new Rover(initialPosition, "N").move(["f"]);
 
@@ -61,7 +61,7 @@ describe("mars rover", () => {
   });
 
   it("should move forward by one when position is 0,1", () => {
-    const initialPosition: Point = { x: 0, y: 1, orientation: "N" };
+    const initialPosition: Point2 = { x: 0, y: 1 };
 
     var newPosition = new Rover(initialPosition, "N").move(["b"]);
 
@@ -69,7 +69,7 @@ describe("mars rover", () => {
   });
 
   it("should move turn right", () => {
-    const initialPosition: Point = { x: 0, y: 1, orientation: "N" };
+    const initialPosition: Point2 = { x: 0, y: 1 };
 
     var newPosition = new Rover(initialPosition, "N").move(["r"]);
 
