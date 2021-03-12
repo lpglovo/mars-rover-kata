@@ -31,4 +31,14 @@ describe("mars rover", () => {
     expect(newPosition.x).toBe(0);
     expect(newPosition.y).toBe(1);
   });
+
+  xit("should move forward by one when position is 0,1", () => {
+    const initialPosition: Point = {x: 0, y: 1};
+    const direction = "N";
+
+    var newPosition = new Rover(initialPosition, direction).move(['F']);
+
+    expect(newPosition.x).toBe(0);
+    expect(newPosition.y).toBe(2);
+  });
 });
