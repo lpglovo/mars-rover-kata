@@ -1,8 +1,7 @@
 type Point = {
-    x: number
-    y: number
-}
+  x: number;
+  y: number;
+  orientation: string;
+};
 
-function rover() {
-
-}
+function rover() {}
