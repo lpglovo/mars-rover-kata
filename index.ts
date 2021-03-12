@@ -1,9 +1,9 @@
-type Point = {
+type Position = {
   orientation: string;
-  point?: Point2
+  point: Point
 };
 
-type Point2 = {
+type Point = {
   x: number;
   y: number;
 }
