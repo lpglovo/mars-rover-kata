@@ -21,22 +21,16 @@ class Rover {
     switch (command) {
       case "f":
         return {
-          x: 0,
-          y: this.position.y + 1,
           orientation: this.position.orientation,
           point: { x: 0, y: this.position.y + 1}
         };
       case "b":
         return {
-          x: 0,
-          y: this.position.y - 1,
           orientation: this.position.orientation,
           point: { x: 0, y: this.position.y - 1}
         };
       case "r":
         return {
-          x: 0,
-          y: this.position.y,
           orientation: this.position.orientation,
           point: { x: 0, y: this.position.y}
         };
@@ -53,8 +47,6 @@ describe("mars rover", () => {
     var newPosition = new Rover(initialPosition, "N").move(["f"]);
 
     expect(newPosition).toEqual({
-      x: 0,
-      y: 1,
       orientation: "N",
       point: { x: 0, y: 1 }
     });
@@ -65,8 +57,6 @@ describe("mars rover", () => {
 
     var newPosition = new Rover(initialPosition, "N").move(["f"]);
 
-    expect(newPosition.x).toBe(0);
-    expect(newPosition.y).toBe(2);
     expect(newPosition.point).toEqual({ x: 0, y: 2 })
   });
 
@@ -75,8 +65,6 @@ describe("mars rover", () => {
 
     var newPosition = new Rover(initialPosition, "N").move(["b"]);
 
-    expect(newPosition.x).toBe(0);
-    expect(newPosition.y).toBe(0);
     expect(newPosition.point).toEqual({ x: 0, y: 0 })
   });
 
@@ -85,6 +73,6 @@ describe("mars rover", () => {
 
     var newPosition = new Rover(initialPosition, "N").move(["r"]);
 
-    expect(newPosition).toEqual({ x: 0, y: 1, orientation: "N", point: { x: 0, y: 1} });
+    expect(newPosition).toEqual({ orientation: "N", point: { x: 0, y: 1} });
   });
 });
