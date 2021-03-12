@@ -17,7 +17,12 @@ class Rover {
   }
 
   move(commands: string[]) {
-    return {x: 0, y: this.position.y + 1};
+    const command = commands[0];
+    switch (command) {
+      case 'f': return {x: 0, y: this.position.y + 1};
+      case 'b': return {x: 0, y: this.position.y - 1};
+      default: throw new Error('undefined command');
+    }
   }
 }
 
@@ -26,7 +31,7 @@ describe("mars rover", () => {
     const initialPosition: Point = {x: 0, y: 0};
     const direction = "N";
 
-    var newPosition = new Rover(initialPosition, direction).move(['F']);
+    var newPosition = new Rover(initialPosition, direction).move(['f']);
 
     expect(newPosition.x).toBe(0);
     expect(newPosition.y).toBe(1);
@@ -36,9 +41,20 @@ describe("mars rover", () => {
     const initialPosition: Point = {x: 0, y: 1};
     const direction = "N";
 
-    var newPosition = new Rover(initialPosition, direction).move(['F']);
+    var newPosition = new Rover(initialPosition, direction).move(['f']);
 
     expect(newPosition.x).toBe(0);
     expect(newPosition.y).toBe(2);
   });
+
+  it("should move forward by one when position is 0,1", () => {
+    const initialPosition: Point = {x: 0, y: 1};
+    const direction = "N";
+
+    var newPosition = new Rover(initialPosition, direction).move(['b']);
+
+    expect(newPosition.x).toBe(0);
+    expect(newPosition.y).toBe(0);
+  });
+
 });
