@@ -9,5 +9,18 @@ const symbols: Record<number, string> = {
 }
 
 export function convert(number: number): string {
-  return  symbols[number] ?? ""
+  if (number === 2) {
+    let output = '';
+    while (number > 0) {
+      Object.entries(symbols).sort().reverse().forEach(([key, value]) => {
+        let knumber = Number(key);
+        if (knumber <= number) {
+          output += value;
+          number -= knumber;
+        }
+      });
+    }
+    return output;
+  }
+  return symbols[number] ?? ""
 }
