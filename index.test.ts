@@ -1,58 +1,23 @@
 import { convert } from "./index";
 
+function testCase(input: number, output: string) {
+  return { input, output,};
+}
+
 const tests = [
-  {
-    input: 1,
-    output: "I",
-  },
-  {
-    input: 5,
-    output: "V",
-  },
-  {
-    input: 10,
-    output: "X",
-  },
-  {
-    input: 50,
-    output: "L",
-  },
-  {
-    input: 100,
-    output: "C",
-  },
-  {
-    input: 500,
-    output: "D",
-  },
-  {
-    input: 1000,
-    output: "M",
-  },
-  {
-    input: 2,
-    output: "II",
-  },
-  {
-    input: 3,
-    output: "III",
-  },
-  {
-    input: 20,
-    output: "XX",
-  },
-  {
-    input: 2000,
-    output: "MM",
-  },
-  {
-    input: 26,
-    output: "XXVI",
-  },
-  {
-    input: 4,
-    output: "IV",
-  },
+  testCase(1, "I"),
+  testCase(5, "V"),
+  testCase(10, "X"),
+  testCase(50, "L"),
+  testCase(100, "C"),
+  testCase(500, "D"),
+  testCase(1000, "M"),
+  testCase(2, "II"),
+  testCase(3, "III"),
+  testCase(20, "XX"),
+  testCase(2000, "MM"),
+  testCase(26, "XXVI"),
+  testCase(4, "IV"),
 ];
 
 describe("roman numbers", () => {

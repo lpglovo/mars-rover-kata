@@ -9,19 +9,18 @@ const symbols: Record<number, string> = {
   1000: "M",
 };
 
-const sortFn = (a: [string, string], b: [string, string]) => {
-  return Number(b[0]) - Number(a[0]);
+const sortFn = (a: number, b: number) => {
+  return b-a;
 };
 
 export function convert(number: number): string {
   let output = "";
   while (number > 0) {
-    const entryArray = Object.entries(symbols).sort(sortFn);
-    for (const touple of entryArray) {
-      let knumber = Number(touple[0]);
-      if (knumber <= number) {
-        output += touple[1];
-        number -= knumber;
+    const kNumbers = Object.keys(symbols).map(Number).sort(sortFn);
+    for (const kNumber of kNumbers) {
+      if (kNumber <= number) {
+        output += symbols[kNumber];
+        number -= kNumber;
         break;
       }
     }
