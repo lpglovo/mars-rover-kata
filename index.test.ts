@@ -46,6 +46,10 @@ const tests = [
     output: "MM",
   },
   {
+    input: 26,
+    output: "XXVI",
+  },
+  {
     input: 4,
     output: "IV",
   },
