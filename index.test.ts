@@ -13,6 +13,22 @@ const tests = [
     input: 10,
     output: "X",
   },
+  {
+    input: 50,
+    output: "L",
+  },
+  {
+    input: 100,
+    output: "C",
+  },
+  {
+    input: 500,
+    output: "D",
+  },
+  {
+    input: 1000,
+    output: "M",
+  },
 ];
 
 describe("roman numbers", () => {
