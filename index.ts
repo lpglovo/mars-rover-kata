@@ -6,21 +6,24 @@ const symbols: Record<number, string> = {
   100: "C",
   500: "D",
   1000: "M",
-}
+};
+
+const sortFn = (a: [string, string], b: [string, string]) => {
+  return Number(b[0]) - Number(a[0]);
+};
 
 export function convert(number: number): string {
-  if (number === 2) {
-    let output = '';
-    while (number > 0) {
-      Object.entries(symbols).sort().reverse().forEach(([key, value]) => {
-        let knumber = Number(key);
-        if (knumber <= number) {
-          output += value;
-          number -= knumber;
-        }
-      });
+  let output = "";
+  while (number > 0) {
+    const entryArray = Object.entries(symbols).sort(sortFn);
+    for (const touple of entryArray) {
+      let knumber = Number(touple[0]);
+      if (knumber <= number) {
+        output += touple[1];
+        number -= knumber;
+        break;
+      }
     }
-    return output;
   }
-  return symbols[number] ?? ""
+  return output;
 }

@@ -33,6 +33,18 @@ const tests = [
     input: 2,
     output: "II",
   },
+  {
+    input: 3,
+    output: "III",
+  },
+  {
+    input: 20,
+    output: "XX",
+  },
+  {
+    input: 2000,
+    output: "MM",
+  },
 ];
 
 describe("roman numbers", () => {
