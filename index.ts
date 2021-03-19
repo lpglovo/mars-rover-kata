@@ -1,9 +1,9 @@
+const symbols: Record<number, string> = {
+  1: "I",
+  5: "V",
+  10: "X",
+}
+
 export function convert(number: number): string {
-  if (number === 10) {
-    return "X";
-  }
-  if (number === 5) {
-    return "V";
-  }
-  return "I";
+  return  symbols[number] ?? ""
 }
