@@ -45,6 +45,10 @@ const tests = [
     input: 2000,
     output: "MM",
   },
+  {
+    input: 4,
+    output: "IV",
+  },
 ];
 
 describe("roman numbers", () => {
