@@ -9,6 +9,10 @@ const tests = [
     input: 5,
     output: "V",
   },
+  {
+    input: 10,
+    output: "X",
+  },
 ];
 
 describe("roman numbers", () => {
